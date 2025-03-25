@@ -28,19 +28,26 @@ if (isset($_GET['idPay'])) {
                         </div>
                         <div class="m-2">
                             <label for="" class="form-label">Order Pay</label>
-                            <input type="number" name="pay" class="form-control">
+                            <input type="number" name="pay" id="pay" oninput="payment()" class="form-control">
                         </div>
                         <div class="m-2">
                             <label for="">Change Pay</label>
-                            <input type="number" name="change_pay" class="form-control" readonly>
+                            <input type="number" name="change_pay" id="change_pay" class="form-control" readonly>
                         </div>
                         <div class="m-2">
                             <label for="">Total</label>
-                            <input type="number" name="total" class="form-control" readonly>
+                            <input type="number" name="total" id="total" class="form-control" value="<?php echo $row['total'] ?>" readonly>
                         </div>
                         <div class="m-2">
                             <button class="btn btn-primary" type="submit" name="bayar">Bayar</button>
                             <a href="?page=trans-order" class="btn btn-secondary">Back</a>
+                            <?php
+                            if ($row['pay'] != 0) {
+                            ?>
+                                <a href="" class="btn btn-danger btn-sm">Print</a>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </form>
                 </div>
@@ -49,3 +56,11 @@ if (isset($_GET['idPay'])) {
         <div class="col-1"></div>
     </div>
 </div>
+<script>
+    function payment() {
+        let pay = document.getElementById("pay").value;
+        let total = document.getElementById("total").value;
+        let hitung = pay - total;
+        document.getElementById("change_pay").value = hitung;
+    }
+</script>
