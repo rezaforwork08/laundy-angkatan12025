@@ -28,6 +28,7 @@ if (isset($_POST['save'])) {
         $subtotal_value = $subtotal[$i];
         $notes_value = $notes[$i];
 
+        // echo $id_order . "-" . $qty_value . " - " . $subtotal_value . " - " . $notes_value;
         $instOrderDet = mysqli_query($koneksi, "INSERT INTO trans_order_detail (id_order, id_service, qty, subtotal, notes) VALUES ('$id_order', '$id_service', '$qty_value', '$subtotal_value', '$notes_value')");
 
         $total += ($subtotal_value * $qty_value);

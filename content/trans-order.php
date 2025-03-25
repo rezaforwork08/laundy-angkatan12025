@@ -44,6 +44,7 @@ if (isset($_GET['delete'])) {
                                     <a href="?page=add-service&detail=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="?page=service&delete=<?php echo $row['id'] ?>"
                                         onclick="return confirm('Are you sure??')" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="?page=pay_transaction&idPay=<?php echo $row['id'] ?>" class="btn btn-success btn-sm">Bayar</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
